@@ -1,0 +1,36 @@
+version: '3'
+
+# Inicio configuracao do ASP.NET
+
+services:
+  corecrud.api:
+    image: corecrud.api
+    build:
+      context: ./CoreCRUD/CoreCRUD.Api
+      dockerfile: Dockerfile
+
+# Fim configuracao do ASP.NET
+
+
+# Inicio da configuracao do MongoDB
+  corecrud_mongodb:
+    image: mongo:3.4
+#    ports:
+#      - "27017:27017"
+    volumes:
+      - db_mongo:/data/db
+    networks:
+      - corecrud
+    restart: always
+    command: --storageEngine wiredTiger
+    environment: 
+      MONGO_INITDB_ROOT_USERNAME: mongouser
+      MONGO_INITDB_ROOT_PASSWORD: GPX4WOwpcvOc9Wm70gAG8It7tKA0Cy090ZVO82cEJsExogsMDY
+# Fim da configuracao do MongoDB
+
+
+volumes:
+  db_mongo:
+networks: 
+  corecrud: 
+    driver: bridge
