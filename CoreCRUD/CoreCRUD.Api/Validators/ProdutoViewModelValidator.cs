@@ -9,6 +9,9 @@ namespace CoreCRUD.Api.Validators
     /// </summary>
     public class ProdutoViewModelValidator : AbstractValidator<ProdutoViewModel>
     {
+        /// <summary>
+        /// Monto a validação do produto
+        /// </summary>
         public ProdutoViewModelValidator()
         {
             // Valida que o campo nome deve ser preenchido
