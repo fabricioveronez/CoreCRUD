@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreCRUD.Api", "CoreCRUD\CoreCRUD.Api\CoreCRUD.Api.csproj", "{D2014D53-9FD9-4FA3-853E-29FF7B7B7C88}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreCRUD.Repository", "CoreCRUD\CoreCRUD.Repository\CoreCRUD.Repository.csproj", "{4E124E20-0368-43EC-83A4-7D8259C0DD9B}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{085CF94E-3A05-4BA6-B376-39ECF585B45B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreCRUD.Test.Unit", "CoreCRUD\CoreCRUD.Test.Unit\CoreCRUD.Test.Unit.csproj", "{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{085CF94E-3A05-4BA6-B376-39ECF585B45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{085CF94E-3A05-4BA6-B376-39ECF585B45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{085CF94E-3A05-4BA6-B376-39ECF585B45B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
