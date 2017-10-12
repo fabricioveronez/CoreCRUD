@@ -8,6 +8,8 @@ services:
     build:
       context: ./CoreCRUD/CoreCRUD.Api
       dockerfile: Dockerfile
+    networks:
+      - corecrud
 
 # Fim configuracao do ASP.NET
 
@@ -15,8 +17,8 @@ services:
 # Inicio da configuracao do MongoDB
   corecrud_mongodb:
     image: mongo:3.4
-#    ports:
-#      - "27017:27017"
+    ports:
+      - "27017:27017"
     volumes:
       - db_mongo:/data/db
     networks:
