@@ -15,6 +15,7 @@ namespace CoreCRUD.Test.Unit
     {
 
         Mock<IMapper> mockMapper;
+        Mock<IProdutoService> produtoServiceMock;
 
 
         public ProdutoControllerTests()
@@ -91,13 +92,11 @@ namespace CoreCRUD.Test.Unit
                   return retorno;
 
               });
-        }
 
-        [Fact]
-        public void ListarTodos()
-        {
+
             // Crio um mock para IProdutoService
-            var produtoServiceMock = new Mock<IProdutoService>();
+            produtoServiceMock = new Mock<IProdutoService>();
+
             produtoServiceMock.Setup(service => service.GetAll()).Returns(() =>
             {
                 return new List<Produto>()
@@ -113,6 +112,25 @@ namespace CoreCRUD.Test.Unit
                 };
             });
 
+            string idModelo = ObjectId.GenerateNewId().ToString();
+            produtoServiceMock.Setup(service => service.Get(It.IsAny<string>())).Returns(() =>
+            {
+                return new Produto()
+                {
+                    Id = idModelo,
+                    Nome = "Geladeira B W600",
+                    Categorias = new string[] { "Geladeira" },
+                    Descricao = "Descrição detalhada da Geladeira B W600",
+                    Preco = 2500
+                };
+            });
+
+            produtoServiceMock.Setup(service => service.Save(It.IsAny<Produto>())).Verifiable();
+        }
+
+        [Fact]
+        public void ListarTodos()
+        {
             var controller = new ProdutoController(mockMapper.Object, produtoServiceMock.Object);
 
             IActionResult result = controller.Get();
@@ -124,22 +142,6 @@ namespace CoreCRUD.Test.Unit
         [Fact]
         public void ListarPorId()
         {
-            string id = ObjectId.GenerateNewId().ToString();
-
-            // Crio um mock para IProdutoService
-            var produtoServiceMock = new Mock<IProdutoService>();
-            produtoServiceMock.Setup(service => service.Get(id)).Returns(() =>
-            {
-                return new Produto()
-                {
-                    Id = id,
-                    Nome = "Geladeira B W600",
-                    Categorias = new string[] { "Geladeira" },
-                    Descricao = "Descrição detalhada da Geladeira B W600",
-                    Preco = 2500
-                };
-            });
-
             var controller = new ProdutoController(mockMapper.Object, produtoServiceMock.Object);
 
             IActionResult result = controller.Get();
@@ -151,22 +153,6 @@ namespace CoreCRUD.Test.Unit
         [Fact]
         public void InserirProdutoEntidadeValida()
         {
-            var produtoServiceMock = new Mock<IProdutoService>();
-            produtoServiceMock.Setup(service => service.Save(new Produto())).Verifiable();
-
-            string id = ObjectId.GenerateNewId().ToString();
-            produtoServiceMock.Setup(service => service.Get(id)).Returns(() =>
-            {
-                return new Produto()
-                {
-                    Id = id,
-                    Nome = "Geladeira B W600",
-                    Categorias = new string[] { "Geladeira" },
-                    Descricao = "Descrição detalhada da Geladeira B W600",
-                    Preco = 2500
-                };
-            });
-
             var controller = new ProdutoController(mockMapper.Object, produtoServiceMock.Object);
 
             IActionResult result = controller.Post(new ProdutoViewModel()
@@ -185,22 +171,6 @@ namespace CoreCRUD.Test.Unit
         [Fact]
         public void InserirProdutoEntidadeInvalida()
         {
-            var produtoServiceMock = new Mock<IProdutoService>();
-            produtoServiceMock.Setup(service => service.Save(new Produto())).Verifiable();
-
-            string id = ObjectId.GenerateNewId().ToString();
-            produtoServiceMock.Setup(service => service.Get(id)).Returns(() =>
-            {
-                return new Produto()
-                {
-                    Id = id,
-                    Nome = "Geladeira B W600",
-                    Categorias = new string[] { "Geladeira" },
-                    Descricao = "Descrição detalhada da Geladeira B W600",
-                    Preco = 2500
-                };
-            });
-
             var controller = new ProdutoController(mockMapper.Object, produtoServiceMock.Object);
             controller.ModelState.AddModelError("Descricao", "Descrição vazia");
 
@@ -221,21 +191,7 @@ namespace CoreCRUD.Test.Unit
         [Fact]
         public void EditarProdutoEntidadeIdValido()
         {
-            var produtoServiceMock = new Mock<IProdutoService>();
-            produtoServiceMock.Setup(service => service.Save(new Produto())).Verifiable();
-
             string id = ObjectId.GenerateNewId().ToString();
-            produtoServiceMock.Setup(service => service.Get(id)).Returns(() =>
-            {
-                return new Produto()
-                {
-                    Id = id,
-                    Nome = "Geladeira B W600",
-                    Categorias = new string[] { "Geladeira" },
-                    Descricao = "Descrição detalhada da Geladeira B W600",
-                    Preco = 2500
-                };
-            });
 
             var controller = new ProdutoController(mockMapper.Object, produtoServiceMock.Object);
 
@@ -256,22 +212,8 @@ namespace CoreCRUD.Test.Unit
         [Fact]
         public void EditarProdutoEntidadeIdInValido()
         {
-            var produtoServiceMock = new Mock<IProdutoService>();
-            produtoServiceMock.Setup(service => service.Save(new Produto())).Verifiable();
-
             string idAleatorio = ObjectId.GenerateNewId().ToString();
             string idModelo = ObjectId.GenerateNewId().ToString();
-            produtoServiceMock.Setup(service => service.Get(idModelo)).Returns(() =>
-            {
-                return new Produto()
-                {
-                    Id = idModelo,
-                    Nome = "Geladeira B W600",
-                    Categorias = new string[] { "Geladeira" },
-                    Descricao = "Descrição detalhada da Geladeira B W600",
-                    Preco = 2500
-                };
-            });
 
             var controller = new ProdutoController(mockMapper.Object, produtoServiceMock.Object);
 
