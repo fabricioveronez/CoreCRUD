@@ -17,6 +17,8 @@ namespace CoreCRUD.Api.Validators
             RuleFor(produto => produto.Preco).GreaterThan(0).WithMessage("Preço deve ser maior que zero.");
             // Valida que a categoria deve ter pelo 1 item.
             RuleFor(produto => produto.Categorias).Must(obj => obj.Count() > 0).WithMessage("Produto deve ter pelo menos uma categoria.");
+            // Valida a descrição 
+            RuleFor(produto => produto.Descricao).NotNull().NotEmpty().WithMessage("A descrição deve ter mais de 20 caracteres.");
         }
     }
 }

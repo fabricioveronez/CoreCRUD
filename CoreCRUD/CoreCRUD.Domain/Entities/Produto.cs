@@ -11,5 +11,6 @@ namespace CoreCRUD.Domain.Entities
         public string Nome { get; set; }
         public decimal Preco { get; set; }
         public IEnumerable<string> Categorias { get; set; }
+        public string  Descricao { get; set; }
     }
 }
