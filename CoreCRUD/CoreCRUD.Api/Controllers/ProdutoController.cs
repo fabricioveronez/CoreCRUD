@@ -49,7 +49,7 @@ namespace CoreCRUD.Api.Controllers
                 IEnumerable<Produto> listaProdutos = this.Service.GetAll();
                 IEnumerable<ProdutoViewModel> retorno = this.AutoMapper.Map<IEnumerable<ProdutoViewModel>>(listaProdutos);
 
-                return new ObjectResult(retorno);
+                return new OkObjectResult(retorno);
             }
             catch (System.Exception ex)
             {
@@ -97,7 +97,7 @@ namespace CoreCRUD.Api.Controllers
                 }
 
                 ProdutoViewModel retorno = this.AutoMapper.Map<ProdutoViewModel>(umProduto);
-                return new ObjectResult(retorno);
+                return new OkObjectResult(retorno);
             }
             catch (System.Exception ex)
             {
