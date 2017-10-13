@@ -127,8 +127,9 @@ namespace CoreCRUD.Api.Controllers
 
                 Produto umProduto = this.AutoMapper.Map<Produto>(produto);
                 this.Service.Save(umProduto);
+                produto = AutoMapper.Map<ProdutoViewModel>(umProduto);
 
-                return CreatedAtRoute("Get", new { id = umProduto.Id }, umProduto);
+                return CreatedAtRoute("Get", new { id = umProduto.Id }, produto);
             }
             catch (System.Exception ex)
             {
@@ -144,7 +145,7 @@ namespace CoreCRUD.Api.Controllers
         /// <param name="id">Id do produto para atualizar</param>
         /// <param name="produto">Dados do produto para alterar</param>
         [HttpPut("{id}")]
-        public IActionResult Update([FromRoute] string id, [FromBody]ProdutoViewModel produto)
+        public IActionResult Put([FromRoute] string id, [FromBody]ProdutoViewModel produto)
         {
             try
             {
