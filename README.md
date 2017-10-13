@@ -17,7 +17,7 @@ Assumindo que já tenha o [Docker](https://www.docker.com) instalado na máquina
 
 ## Tecnologias utilizadas:
 
-- ASP.NET Core 2.0 (com .NET Core)
+- [ASP.NET Core 2.0 (com .NET Core)](https://www.microsoft.com/net/core)
  - ASP.NET MVC Core 
  - ASP.NET WebApi Core
 
