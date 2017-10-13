@@ -17,6 +17,8 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreCRUD.Test.Unit", "CoreCRUD\CoreCRUD.Test.Unit\CoreCRUD.Test.Unit.csproj", "{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreCRUD.Test.Integration", "CoreCRUD\CoreCRUD.Test.Integration\CoreCRUD.Test.Integration.csproj", "{53968143-C6D3-4793-A318-5B2C9288C32D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53968143-C6D3-4793-A318-5B2C9288C32D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53968143-C6D3-4793-A318-5B2C9288C32D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53968143-C6D3-4793-A318-5B2C9288C32D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53968143-C6D3-4793-A318-5B2C9288C32D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

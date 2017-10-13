@@ -12,7 +12,7 @@ namespace CoreCRUD.Infrastructure.Repository
     /// </summary>
     /// <typeparam name="T">Entidade do repositório</typeparam>
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
-    {        
+    {
         private IDbContext DbContext { get; set; }
         private IMongoCollection<T> Collection { get; set; }
 
@@ -29,7 +29,7 @@ namespace CoreCRUD.Infrastructure.Repository
         /// <returns>Instância que possui esse id</returns>
         public T Get(string id)
         {
-            return this.Collection.Find(obj => obj.Id.ToString() == id).FirstOrDefault();
+            return this.Collection.Find(Builders<T>.Filter.Eq(p => p.Id, id)).FirstOrDefault();
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace CoreCRUD.Infrastructure.Repository
             }
             else
             {
-                pagedList.TotalPages = result.Count() / itensPerPage;               
+                pagedList.TotalPages = result.Count() / itensPerPage;
                 pagedList.Itens = result.Skip(itensPerPage * (pageNumber - 1)).Limit(itensPerPage).ToList();
             }
 

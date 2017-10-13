@@ -18,7 +18,7 @@ namespace CoreCRUD.Test.Unit.Validators
             "Essa é a descrição da geladeira W600",
             new string[] { "Geladeiras" },
             2500)]
-        public void EntidadesValidas(string nome, string descricao, string[] categorias, decimal preco)
+        public void EntidadesValidas(string nome, string descricao, string[] categorias, double preco)
         {
             ProdutoViewModel viewModel = new ProdutoViewModel()
             {
@@ -38,7 +38,7 @@ namespace CoreCRUD.Test.Unit.Validators
         [InlineData("Geladeira W600", "", new string[] { "Geladeiras" }, 2500)]
         [InlineData("Geladeira W600", "", new string[] { }, 2400)]
         [InlineData("Geladeira W600", "", new string[] { "Geladeiras" }, 0)]
-        public void EntidadesInValidas(string nome, string descricao, string[] categorias, decimal preco)
+        public void EntidadesInValidas(string nome, string descricao, string[] categorias, double preco)
         {
             ProdutoViewModel viewModel = new ProdutoViewModel()
             {
@@ -51,8 +51,6 @@ namespace CoreCRUD.Test.Unit.Validators
             ValidationResult resultado = validador.Validate(viewModel);
 
             Assert.False(resultado.IsValid);
-        }
-
-
+        } 
     }
 }

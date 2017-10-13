@@ -148,7 +148,7 @@ namespace CoreCRUD.Api.Controllers
         {
             try
             {
-                if (produto == null || produto.Id != id)
+                if (produto == null || produto.Id.ToString() != id)
                 {
                     return BadRequest();
                 }
@@ -158,7 +158,7 @@ namespace CoreCRUD.Api.Controllers
                     return new BadRequestObjectResult(ModelState);
                 }
 
-                if (this.Service.Get(produto.Id) == null)
+                if (this.Service.Get(produto.Id.ToString()) == null)
                 {
                     return NotFound();
                 }
