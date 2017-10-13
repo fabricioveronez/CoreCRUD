@@ -5,6 +5,7 @@ using CoreCRUD.Api.ViewModel;
 using CoreCRUD.Application.Interfaces.Services;
 using CoreCRUD.Domain.Entities;
 using CoreCRUD.Infrastructure.Collections;
+using MongoDB.Bson;
 
 namespace CoreCRUD.Api.Controllers
 {
@@ -45,7 +46,7 @@ namespace CoreCRUD.Api.Controllers
         public IActionResult Get()
         {
             try
-            {
+            {                
                 IEnumerable<Produto> listaProdutos = this.Service.GetAll();
                 IEnumerable<ProdutoViewModel> retorno = this.AutoMapper.Map<IEnumerable<ProdutoViewModel>>(listaProdutos);
 
@@ -90,6 +91,12 @@ namespace CoreCRUD.Api.Controllers
         {
             try
             {
+                ObjectId objID;
+                if (!ObjectId.TryParse(id, out objID))
+                {
+                     return new BadRequestObjectResult("Id inválido.");
+                }
+
                 Produto umProduto = this.Service.Get(id);
                 if (umProduto == null)
                 {
@@ -149,6 +156,13 @@ namespace CoreCRUD.Api.Controllers
         {
             try
             {
+
+                ObjectId objID;
+                if (!ObjectId.TryParse(id, out objID))
+                {
+                     return new BadRequestObjectResult("Id inválido.");
+                }
+
                 if (produto == null || produto.Id.ToString() != id)
                 {
                     return BadRequest();
@@ -187,6 +201,12 @@ namespace CoreCRUD.Api.Controllers
         {
             try
             {
+                ObjectId objID;
+                if (!ObjectId.TryParse(id, out objID))
+                {
+                     return new BadRequestObjectResult("Id inválido.");
+                }
+
                 Produto umProduto = this.Service.Get(id);
                 if (umProduto == null)
                 {
