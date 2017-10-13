@@ -19,11 +19,9 @@ namespace CoreCRUD.Test.Unit
 
 
         public ProdutoControllerTests()
-        {
-            // Crio um mock para o AutoMapper
+        {        
             mockMapper = new Mock<IMapper>();
-
-            // Configuro o mapeamento de ProdutoViewModel para Produto
+           
             mockMapper.Setup(x => x.Map<Produto>(It.IsAny<ProdutoViewModel>()))
                 .Returns((ProdutoViewModel source) =>
                 {
@@ -36,8 +34,7 @@ namespace CoreCRUD.Test.Unit
                         Descricao = source.Descricao
                     };
                 });
-
-            // Configuro o mapeamento de Produto para ProdutoViewModel
+         
             mockMapper.Setup(x => x.Map<ProdutoViewModel>(It.IsAny<Produto>()))
                 .Returns((Produto source) =>
                 {
@@ -231,5 +228,26 @@ namespace CoreCRUD.Test.Unit
             Assert.Equal(400, resultado.StatusCode);
         }
 
+        [Fact]
+        public void ListaPaginada()
+        {
+            var controller = new ProdutoController(mockMapper.Object, produtoServiceMock.Object);
+
+            IActionResult result = controller.PagedGet(1, 5);
+            OkObjectResult okResult = result as OkObjectResult;
+            Assert.NotNull(okResult);
+            Assert.Equal(200, okResult.StatusCode);
+        }
+
+        [Fact]
+        public void DeletarProduto()
+        {
+            var controller = new ProdutoController(mockMapper.Object, produtoServiceMock.Object);
+
+            IActionResult result = controller.Delete(ObjectId.GenerateNewId().ToString());
+            NoContentResult okResult = result as NoContentResult;
+            Assert.NotNull(okResult);
+            Assert.Equal(204, okResult.StatusCode);
+        }
     }
 }

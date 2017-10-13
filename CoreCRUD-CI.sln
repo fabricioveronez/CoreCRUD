@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreCRUD.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreCRUD.Repository", "CoreCRUD\CoreCRUD.Repository\CoreCRUD.Repository.csproj", "{4E124E20-0368-43EC-83A4-7D8259C0DD9B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreCRUD.Test.Unit", "CoreCRUD\CoreCRUD.Test.Unit\CoreCRUD.Test.Unit.csproj", "{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{4E124E20-0368-43EC-83A4-7D8259C0DD9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E124E20-0368-43EC-83A4-7D8259C0DD9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E124E20-0368-43EC-83A4-7D8259C0DD9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4296DE94-C6DA-4C25-8C38-180E46BCFA1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

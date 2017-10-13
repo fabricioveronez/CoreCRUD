@@ -71,7 +71,7 @@ namespace CoreCRUD.Api.Controllers
                 PagedList<Produto> listaProdutos = this.Service.PagedGetAll(pageNumber, itensPerPage);
                 PagedList<ProdutoViewModel> retorno = this.AutoMapper.Map<PagedList<ProdutoViewModel>>(listaProdutos);
 
-                return new ObjectResult(retorno);
+                return new OkObjectResult(retorno);
             }
             catch (System.Exception ex)
             {
@@ -128,7 +128,7 @@ namespace CoreCRUD.Api.Controllers
                 Produto umProduto = this.AutoMapper.Map<Produto>(produto);
                 this.Service.Save(umProduto);
 
-                return CreatedAtRoute("Get", new { id = umProduto.Id }, produto);
+                return CreatedAtRoute("Get", new { id = umProduto.Id }, umProduto);
             }
             catch (System.Exception ex)
             {
@@ -148,7 +148,7 @@ namespace CoreCRUD.Api.Controllers
         {
             try
             {
-                if (produto == null || produto.Id != id)
+                if (produto == null || produto.Id.ToString() != id)
                 {
                     return BadRequest();
                 }
@@ -158,7 +158,7 @@ namespace CoreCRUD.Api.Controllers
                     return new BadRequestObjectResult(ModelState);
                 }
 
-                if (this.Service.Get(produto.Id) == null)
+                if (this.Service.Get(produto.Id.ToString()) == null)
                 {
                     return NotFound();
                 }

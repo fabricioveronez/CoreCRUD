@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,12 +12,11 @@ namespace CoreCRUD.Api.ViewModel
     /// Produto View Model
     /// </summary>
     public class ProdutoViewModel
-    {
+    {    
         public string Id { get; set; }
         public string Nome { get; set; }
-        public decimal Preco { get; set; }
+        public double Preco { get; set; }
         public IEnumerable<string> Categorias { get; set; }
-        [MinLength(20)]
         public string Descricao { get; set; }
     }
 }

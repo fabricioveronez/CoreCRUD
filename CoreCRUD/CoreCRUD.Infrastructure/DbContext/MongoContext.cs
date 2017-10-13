@@ -16,7 +16,7 @@ namespace CoreCRUD.Infrastructure.DbContext
 
             MongoUrl url = new MongoUrl(this.Configuration.GetSection("ConnectionString").Value);
             MongoClient client = new MongoClient(url);
-            _MongoDatabase = client.GetDatabase(this.Configuration.GetSection("DataBase").Value);
+            _MongoDatabase = client.GetDatabase(this.Configuration.GetSection("DataBase").Value);          
         }
 
         public IMongoDatabase Context => _MongoDatabase;
