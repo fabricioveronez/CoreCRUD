@@ -12,7 +12,7 @@ Assumindo que já tenha o [Docker](https://www.docker.com) instalado na máquina
 
 3. Execute o o deploy, atualiza a imagem da aplicação e cria o banco MongoDB ```docker-compose up -d --build```
 
-4. No seu browser acesse a url http://localhost:8080/swagger para acessar as apis
+4. No seu browser acesse a url http://localhost:8181/swagger para acessar as apis
 
 
 ## Tecnologias utilizadas:

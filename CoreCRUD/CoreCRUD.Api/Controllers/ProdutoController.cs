@@ -122,6 +122,13 @@ namespace CoreCRUD.Api.Controllers
         {
             try
             {
+
+                 ObjectId objID;
+                if (!ObjectId.TryParse(produto.Id, out objID))
+                {
+                     return new BadRequestObjectResult("Id inválido.");
+                }
+
                 if (produto == null)
                 {
                     return BadRequest();
