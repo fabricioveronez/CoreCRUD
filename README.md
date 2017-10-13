@@ -10,7 +10,7 @@ Assumindo que já tenha o [Docker](https://www.docker.com) instalado na máquina
 
 2. Execute o build e os testes unitários ```docker-compose -f .\docker-compose.ci.build.yml up```
 
-3. Execute o o deploy e a criação do banco MongoDB ```docker-compose -f .\docker-compose.ci.build.yml up```
+3. Execute o o deploy, atualiza a imagem da aplicação e cria o banco MongoDB ```docker-compose up -d --build```
 
 4. No seu browser acesse a url http://localhost:8080/swagger para acessar as apis
 
