@@ -214,7 +214,7 @@ namespace CoreCRUD.Test.Unit
 
             var controller = new ProdutoController(mockMapper.Object, produtoServiceMock.Object);
 
-            IActionResult result = controller.Update(idAleatorio, new ProdutoViewModel()
+            IActionResult result = controller.Put(idAleatorio, new ProdutoViewModel()
             {
                 Id = idModelo,
                 Nome = "Geladeira B W600",
