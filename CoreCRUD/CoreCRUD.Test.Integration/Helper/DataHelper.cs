@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CoreCRUD.Test.Integration.Data
 {
-    public class DataHelper
+    public static class DataHelper
     {
 
         private static Stack<string> ids = new Stack<string>();
@@ -32,7 +32,7 @@ namespace CoreCRUD.Test.Integration.Data
                 Descricao = "Projetado para os mais entusiastas jogadores, veja os jogos ganharem vida no Monitor Alienware de 24.5 polegadas para jogos com iluminação AlienFX personalizado, taxas de atualização nativa ultrarrápida de 240 Hz, tempo de resposta de 1 ms e tecnologia AMD FreeSync com recursos gráficos inovadores."
             };
             produtoCollection.InsertOne(produto);
-            ids.Push(produto.Id);
+            ids.Push(produto.Id.ToString());
 
             produto = new Produto()
             {
@@ -42,7 +42,7 @@ namespace CoreCRUD.Test.Integration.Data
                 Descricao = ""
             };
             produtoCollection.InsertOne(produto);
-            ids.Push(produto.Id);
+            ids.Push(produto.Id.ToString());
 
             produto = new Produto()
             {
@@ -52,7 +52,7 @@ namespace CoreCRUD.Test.Integration.Data
                 Descricao = "O novo ZenFone 4 Selfie chegou para redefinir tudo o que você já viu sobre o fenômeno do autorretrato. Ele é ideal para quem quer tirar, não penas selfies, mas também wefies perfeitas! - Não conhece o novo fenômeno das wefies? São as selfies com várias pessoas! O sistema de câmera dupla frontal do ZenFone 4 Selfie tem lentes wide angle de 120° que permitem que você enquadre muitos amigos na sua selfie. E claro, com a incrível qualidade de imagem da câmera de 20 MP e flash frontal. Já o design fino, com cores metálicas, além de bonito e sofisticado, é perfeito para que você segure e capture momentos incríveis com muita facilidade e segurança. "
             };
             produtoCollection.InsertOne(produto);
-            ids.Push(produto.Id);
+            ids.Push(produto.Id.ToString());
 
             produto = new Produto()
             {
@@ -62,7 +62,7 @@ namespace CoreCRUD.Test.Integration.Data
                 Descricao = "Os 3 filmes deste clássico que marcou as décadas de 80 e 90. Relembre esta história emocionante do policial Alez Murphy que se tornou Robocop: O Policial do Futuro."
             };
             produtoCollection.InsertOne(produto);
-            ids.Push(produto.Id);
+            ids.Push(produto.Id.ToString());
 
             produto = new Produto()
             {
@@ -72,7 +72,7 @@ namespace CoreCRUD.Test.Integration.Data
                 Descricao = "Cooktop Brastemp Com Tecnologia De Indução De Última Geração E Design Sofisticado, Tem Maior Eficiência Energética (-40 De Consumo). Possui Timer Com Programação Individual Para Cada Boca Proporcionando Controle Preciso Para Receitas Sempre No Ponto Perfeito Com O Desligamento Automático Ao Final Do Tempo De Cocção."
             };
             produtoCollection.InsertOne(produto);
-            ids.Push(produto.Id);
+            ids.Push(produto.Id.ToString());
 
             produto = new Produto()
             {
@@ -82,7 +82,7 @@ namespace CoreCRUD.Test.Integration.Data
                 Descricao = "Quanto mais você aprende, mais a Cortana se torna mais útil para você. Conte com a Cortana para ajudar você a encontrar coisas, realizar tarefas, definir lembretes e trabalhar em seus dispositivos de forma mais produtiva."
             };
             produtoCollection.InsertOne(produto);
-            ids.Push(produto.Id);
+            ids.Push(produto.Id.ToString());
 
             produto = new Produto()
             {
@@ -92,7 +92,7 @@ namespace CoreCRUD.Test.Integration.Data
                 Descricao = "O Home Theater possui diversas portas para facilitar a forma como você aprecia conteúdos. Reproduza o áudio por meio das entradas DLNA e USB. Jogue ou assista a programação em alta definição com a conexão HDMI ARC."
             };
             produtoCollection.InsertOne(produto);
-            ids.Push(produto.Id);
+            ids.Push(produto.Id.ToString());
 
             produto = new Produto()
             {
@@ -102,7 +102,7 @@ namespace CoreCRUD.Test.Integration.Data
                 Descricao = "O Sofá Laguna tem tudo a ver com a sua casa. Com 3 lugares, assentos retráteis, encostos reclináveis se encaixa perfeitamente em qualquer ambiente. Além de possuir design diferenciado, praticidade e conforto, o Sofá Laguna é 100% fibra e com madeira de eucalipto de áreas de reflorestamento. Uma combinação perfeita para quem procura sintonia entre qualidade e bom gosto. Aproveite!"
             };
             produtoCollection.InsertOne(produto);
-            ids.Push(produto.Id);
+            ids.Push(produto.Id.ToString());
         }
 
         public static string GetValidId()
@@ -113,6 +113,8 @@ namespace CoreCRUD.Test.Integration.Data
             IMongoCollection<Produto> produtoCollection = db.GetCollection<Produto>("Produto");
 
             return produtoCollection.Find(FilterDefinition<Produto>.Empty).FirstOrDefault().Id;
+
+            /// return ids.Pop();
         }
 
         public static string GetRamdonId()

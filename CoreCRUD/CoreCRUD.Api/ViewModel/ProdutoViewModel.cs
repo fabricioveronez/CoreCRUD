@@ -17,7 +17,6 @@ namespace CoreCRUD.Api.ViewModel
         public string Nome { get; set; }
         public double Preco { get; set; }
         public IEnumerable<string> Categorias { get; set; }
-        [MinLength(20)]
         public string Descricao { get; set; }
     }
 }

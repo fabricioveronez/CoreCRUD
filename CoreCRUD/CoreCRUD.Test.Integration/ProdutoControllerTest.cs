@@ -26,8 +26,7 @@ namespace CoreCRUD.Test.Integration
             var response = await Client.GetAsync("/api/Produto");
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
-            IEnumerable<ProdutoViewModel> listaProdutos = JsonConvert.DeserializeObject<IEnumerable<ProdutoViewModel>>(responseString);
-            Assert.NotNull(listaProdutos);
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
 
         [Fact]
@@ -36,35 +35,29 @@ namespace CoreCRUD.Test.Integration
             var response = await Client.GetAsync(string.Format("/api/Produto/pagina/{0}/itensporpagina/{1}", 1, 3));
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
-            PagedList<ProdutoViewModel> listaProdutos = JsonConvert.DeserializeObject<PagedList<ProdutoViewModel>>(responseString);
-            Assert.NotNull(listaProdutos);
+            PagedList<ProdutoViewModel> listaProdutos = JsonConvert.DeserializeObject<PagedList<ProdutoViewModel>>(responseString);       
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
 
-        [Theory]
-        [InlineData("3423424343")]
-        public async Task ListarPorIdValido(string id)
+        [Fact]
+        public async Task ListarPorIdValido()
         {
-            var response = await Client.GetAsync("/api/Produto");
+            var response = await Client.GetAsync(string.Format("/api/Produto/{0}", DataHelper.GetValidId()));
             response.EnsureSuccessStatusCode();
-            var responseString = await response.Content.ReadAsStringAsync();
-            IEnumerable<ProdutoViewModel> listaProdutos = JsonConvert.DeserializeObject<IEnumerable<ProdutoViewModel>>(responseString);
-            Assert.NotNull(listaProdutos);
+            var responseString = await response.Content.ReadAsStringAsync();                    
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
 
-        [Theory]
-        [InlineData("3423424343")]
-        [InlineData("978978989")]
-        public async Task ListarPorIdInValido(string id)
+        [Fact]
+        public async Task ListarPorIdInValido()
         {
-            var response = await Client.GetAsync("/api/Produto");
-            response.EnsureSuccessStatusCode();
-            var responseString = await response.Content.ReadAsStringAsync();
-            IEnumerable<ProdutoViewModel> listaProdutos = JsonConvert.DeserializeObject<IEnumerable<ProdutoViewModel>>(responseString);
-            Assert.NotNull(listaProdutos);
+            var response = await Client.GetAsync(string.Format("/api/Produto/{0}", DataHelper.GetRamdonId()));
+            var responseString = await response.Content.ReadAsStringAsync();           
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }
 
         [Theory]
-        [InlineData("Geladeira", "Essa é a descrição da geladeira", new string[] { "Geladeiras" }, 2500)]      
+        [InlineData("Geladeira", "Essa é a descrição da geladeira", new string[] { "Geladeiras" }, 2500)]
         public async Task InserirProdutoEntidadeValida(string nome, string descricao, string[] categorias, double preco)
         {
             ProdutoViewModel viewModel = new ProdutoViewModel()
@@ -103,7 +96,7 @@ namespace CoreCRUD.Test.Integration
         }
 
         [Theory]
-        [InlineData("Geladeira W600", "Essa é a descrição da geladeira W600", new string[] { "Geladeiras" }, 2500)]     
+        [InlineData("Geladeira W600", "Essa é a descrição da geladeira W600", new string[] { "Geladeiras" }, 2500)]
         public async Task EditarProdutoEntidadeValida(string nome, string descricao, string[] categorias, double preco)
         {
             ProdutoViewModel viewModel = new ProdutoViewModel()
