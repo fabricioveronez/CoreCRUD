@@ -5,6 +5,8 @@ version: '3'
 services:
   corecrud.api:
     image: corecrud.api
+    ports:
+      - "80:80"
     build:
       context: ./CoreCRUD/CoreCRUD.Api
       dockerfile: Dockerfile
