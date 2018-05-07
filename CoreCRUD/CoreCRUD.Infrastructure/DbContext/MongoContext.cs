@@ -7,18 +7,23 @@ namespace CoreCRUD.Infrastructure.DbContext
     public class MongoContext : IDbContext
     {
 
-        private IConfiguration Configuration { get; set; }
-        private readonly IMongoDatabase _MongoDatabase;
+        public string ConnectionString { get; set; }
+        public string DataBase { get; set; }
 
-        public MongoContext(IConfiguration configuration)
+
+        public MongoContext()
         {
-            this.Configuration = configuration.GetSection("Mongo");
 
-            MongoUrl url = new MongoUrl(this.Configuration.GetSection("ConnectionString").Value);
-            MongoClient client = new MongoClient(url);
-            _MongoDatabase = client.GetDatabase(this.Configuration.GetSection("DataBase").Value);          
         }
 
-        public IMongoDatabase Context => _MongoDatabase;
+        public IMongoDatabase Context
+        {
+            get
+            {
+                MongoUrl url = new MongoUrl(this.ConnectionString);
+                MongoClient client = new MongoClient(url);
+                return client.GetDatabase(this.DataBase);
+            }
+        }
     }
 }

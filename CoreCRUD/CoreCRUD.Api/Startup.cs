@@ -29,7 +29,7 @@ namespace CoreCRUD.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ProdutoViewModelValidator>());           
+            services.AddMvc().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ProdutoViewModelValidator>());
 
             // Configuro o auto mapper
             var config = AutoMapperConfig.RegisterMappings();
@@ -46,9 +46,9 @@ namespace CoreCRUD.Api
                     Description = "Api de cadastro de produto",
                     TermsOfService = "",
                     Contact = new Contact { Name = "Fabrício Veronez", Email = "fabricioveronez@gmail.com", Url = "" },
-                    License = new License { Name = "Sem licença, só me contratar ;-)", Url = "" }
+                    License = new License { Name = "Sem licença.", Url = "" }
                 });
-                
+
                 // Configuro os comentários do swagger JSON e UI.
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPath = Path.Combine(basePath, "CoreCRUD.Api.xml");
@@ -56,10 +56,26 @@ namespace CoreCRUD.Api
             });
 
             // Registro os objetos que vou usar na aplicação
-            services.AddSingleton<IConfiguration>(this.Configuration);
+            services.AddSingleton(this.Configuration);
             services.AddTransient<IProdutoService, ProdutoService>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
-            services.AddTransient<IDbContext, MongoContext>();
+
+            services.AddScoped<IDbContext>(sp =>
+            {
+                return new MongoContext()
+                {
+                    ConnectionString = this.Configuration.GetSection("Mongo:ConnectionString").Get<string>(),
+                    DataBase = this.Configuration.GetSection("Mongo:DataBase").Get<string>()
+                };
+            });
+
+
+            //services.AddScoped((sp) =>
+            //{
+            //    return sp.GetRequiredService<MongoContext>();
+            //});
+
+            //services.AddScoped<IDbContext, MongoContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

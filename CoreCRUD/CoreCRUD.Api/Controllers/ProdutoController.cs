@@ -46,7 +46,7 @@ namespace CoreCRUD.Api.Controllers
         public IActionResult Get()
         {
             try
-            {                
+            {
                 IEnumerable<Produto> listaProdutos = this.Service.GetAll();
                 IEnumerable<ProdutoViewModel> retorno = this.AutoMapper.Map<IEnumerable<ProdutoViewModel>>(listaProdutos);
 
@@ -94,7 +94,7 @@ namespace CoreCRUD.Api.Controllers
                 ObjectId objID;
                 if (!ObjectId.TryParse(id, out objID))
                 {
-                     return new BadRequestObjectResult("Id inválido.");
+                    return new BadRequestObjectResult("Id inválido.");
                 }
 
                 Produto umProduto = this.Service.Get(id);
@@ -122,12 +122,6 @@ namespace CoreCRUD.Api.Controllers
         {
             try
             {
-
-                 ObjectId objID;
-                if (!ObjectId.TryParse(produto.Id, out objID))
-                {
-                     return new BadRequestObjectResult("Id inválido.");
-                }
 
                 if (produto == null)
                 {
@@ -167,7 +161,7 @@ namespace CoreCRUD.Api.Controllers
                 ObjectId objID;
                 if (!ObjectId.TryParse(id, out objID))
                 {
-                     return new BadRequestObjectResult("Id inválido.");
+                    return new BadRequestObjectResult("Id inválido.");
                 }
 
                 if (produto == null || produto.Id.ToString() != id)
@@ -211,7 +205,7 @@ namespace CoreCRUD.Api.Controllers
                 ObjectId objID;
                 if (!ObjectId.TryParse(id, out objID))
                 {
-                     return new BadRequestObjectResult("Id inválido.");
+                    return new BadRequestObjectResult("Id inválido.");
                 }
 
                 Produto umProduto = this.Service.Get(id);
