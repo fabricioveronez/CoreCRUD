@@ -1,27 +1,18 @@
-version: '3'
-
-# Inicio configuracao do ASP.NET
+version: '3.4'
 
 services:
   corecrud.api:
-    image: corecrud
+    image: ${DOCKER_REGISTRY-}corecrudapi
     ports:
       - "8181:80"
     build:
-      context: ./CoreCRUD/CoreCRUD.Api
-      dockerfile: Dockerfile      
-
+      context: .
+      dockerfile: CoreCRUD/CoreCRUD.Api/Dockerfile
     networks:
       - corecrud
 
-# Fim configuracao do ASP.NET
-
-
-# Inicio da configuracao do MongoDB
   corecrud_mongodb:
     image: mongo:3.4
-    ports:
-      - "27017"
     volumes:
       - db_mongo:/data/db
     networks:
@@ -31,8 +22,6 @@ services:
     environment: 
       MONGO_INITDB_ROOT_USERNAME: mongouser
       MONGO_INITDB_ROOT_PASSWORD: GPX4WOwpcvOc9Wm70gAG8It7tKA0Cy090ZVO82cEJsExogsMDY
-# Fim da configuracao do MongoDB
-
 
 volumes:
   db_mongo:
