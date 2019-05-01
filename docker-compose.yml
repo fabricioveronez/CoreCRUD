@@ -5,9 +5,9 @@ services:
     image: fabricioveronez/corecrud
     ports:
       - "8181:80"
-#    build:
-#      context: .
-#      dockerfile: CoreCRUD/CoreCRUD.Api/Dockerfile
+    build:
+      context: .
+      dockerfile: CoreCRUD/CoreCRUD.Api/Dockerfile
     networks:
       - corecrud
 
