@@ -2,17 +2,17 @@ version: '3.4'
 
 services:
   corecrud.api:
-    image: ${DOCKER_REGISTRY-}corecrudapi
+    image: fabricioveronez/corecrud
     ports:
       - "8181:80"
-    build:
-      context: .
-      dockerfile: CoreCRUD/CoreCRUD.Api/Dockerfile
+#    build:
+#      context: .
+#      dockerfile: CoreCRUD/CoreCRUD.Api/Dockerfile
     networks:
       - corecrud
 
-  corecrud_mongodb:
-    image: mongo:3.4
+  corecrud-mongodb:
+    image: mongo:4.1
     volumes:
       - db_mongo:/data/db
     networks:
