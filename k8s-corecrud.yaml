@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: corecrud-mongodb
+spec:  
+  selector:
+    matchLabels:
+      app: corecrud-mongodb
+  template:
+    metadata:
+      labels:
+        app: corecrud-mongodb
+    spec:
+      containers:
+      - name: corecrud-container-mongodb
+        image: mongo:4.1
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: "mongouser"
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: "GPX4WOwpcvOc9Wm70gAG8It7tKA0Cy090ZVO82cEJsExogsMDY"
+        ports:
+        - containerPort: 27017
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: corecrud-mongodb
+spec:
+  selector:
+    app: corecrud-mongodb
+  ports:
+  - protocol: TCP
+    port: 27017
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: corecrud
+spec:
+  selector:
+    matchLabels:
+      app: corecrud
+  template:    
+    metadata:
+      labels:
+        app: corecrud
+    spec:      
+      containers:
+      - name: corecrud-container
+        image: fabricioveronez/apresentacaoaks:v1        
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: corecrud-service
+spec:
+  selector:
+    app: corecrud
+  ports:
+  - protocol: TCP
+    port: 80
+  type: LoadBalancer
