@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Equinox.Application.AutoMapper
+namespace CoreCRUD.Api.AutoMapper
 {
     /// <summary>
     /// Classe configuradora do AutoMapper

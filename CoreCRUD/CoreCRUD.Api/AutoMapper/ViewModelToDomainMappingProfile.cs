@@ -3,7 +3,7 @@ using CoreCRUD.Api.ViewModel;
 using CoreCRUD.Infrastructure.Collections;
 using CoreCRUD.Domain.Entities;
 
-namespace Equinox.Application.AutoMapper
+namespace CoreCRUD.Api.AutoMapper
 {
     /// <summary>
     /// Classe que mapeia os dados do view model para o domain

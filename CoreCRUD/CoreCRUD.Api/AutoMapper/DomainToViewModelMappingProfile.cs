@@ -3,7 +3,7 @@ using CoreCRUD.Api.ViewModel;
 using CoreCRUD.Infrastructure.Collections;
 using CoreCRUD.Domain.Entities;
 
-namespace Equinox.Application.AutoMapper
+namespace CoreCRUD.Api.AutoMapper
 {
     public class DomainToViewModelMappingProfile : Profile
     {

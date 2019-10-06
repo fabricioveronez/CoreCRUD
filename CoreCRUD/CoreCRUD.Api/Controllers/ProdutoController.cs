@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using CoreCRUD.Api.ViewModel;
-using CoreCRUD.Application.Interfaces.Services;
 using CoreCRUD.Domain.Entities;
 using CoreCRUD.Infrastructure.Collections;
 using MongoDB.Bson;
+using CoreCRUD.Application.Interfaces.Services;
 
 namespace CoreCRUD.Api.Controllers
 {
