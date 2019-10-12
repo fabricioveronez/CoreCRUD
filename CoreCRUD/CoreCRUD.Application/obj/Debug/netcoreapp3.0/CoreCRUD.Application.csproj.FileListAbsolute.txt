@@ -1,0 +1,13 @@
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\bin\Debug\netcoreapp3.0\CoreCRUD.Application.deps.json
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\bin\Debug\netcoreapp3.0\CoreCRUD.Application.dll
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\bin\Debug\netcoreapp3.0\CoreCRUD.Application.pdb
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\bin\Debug\netcoreapp3.0\CoreCRUD.Domain.dll
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\bin\Debug\netcoreapp3.0\CoreCRUD.Infrastructure.dll
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\bin\Debug\netcoreapp3.0\CoreCRUD.Domain.pdb
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\bin\Debug\netcoreapp3.0\CoreCRUD.Infrastructure.pdb
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\obj\Debug\netcoreapp3.0\CoreCRUD.Application.csprojAssemblyReference.cache
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\obj\Debug\netcoreapp3.0\CoreCRUD.Application.AssemblyInfoInputs.cache
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\obj\Debug\netcoreapp3.0\CoreCRUD.Application.AssemblyInfo.cs
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\obj\Debug\netcoreapp3.0\CoreCRUD.Application.csproj.CopyComplete
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\obj\Debug\netcoreapp3.0\CoreCRUD.Application.dll
+D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Application\obj\Debug\netcoreapp3.0\CoreCRUD.Application.pdb

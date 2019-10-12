@@ -1,0 +1,201 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Application\\CoreCRUD.Application.csproj": {}
+  },
+  "projects": {
+    "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Application\\CoreCRUD.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Application\\CoreCRUD.Application.csproj",
+        "projectName": "CoreCRUD.Application",
+        "projectPath": "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Application\\CoreCRUD.Application.csproj",
+        "packagesPath": "C:\\Users\\fabri\\.nuget\\packages\\",
+        "outputPath": "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Domain\\CoreCRUD.Domain.csproj": {
+                "projectPath": "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Domain\\CoreCRUD.Domain.csproj"
+              },
+              "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Infrastructure\\CoreCRUD.Infrastructure.csproj": {
+                "projectPath": "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Infrastructure\\CoreCRUD.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Domain\\CoreCRUD.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Domain\\CoreCRUD.Domain.csproj",
+        "projectName": "CoreCRUD.Domain",
+        "projectPath": "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Domain\\CoreCRUD.Domain.csproj",
+        "packagesPath": "C:\\Users\\fabri\\.nuget\\packages\\",
+        "outputPath": "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Infrastructure\\CoreCRUD.Infrastructure.csproj": {
+                "projectPath": "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Infrastructure\\CoreCRUD.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Infrastructure\\CoreCRUD.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Infrastructure\\CoreCRUD.Infrastructure.csproj",
+        "projectName": "CoreCRUD.Infrastructure",
+        "projectPath": "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Infrastructure\\CoreCRUD.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\fabri\\.nuget\\packages\\",
+        "outputPath": "D:\\Fabricio\\Projetos\\CoreCRUD\\CoreCRUD\\CoreCRUD.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.8.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
