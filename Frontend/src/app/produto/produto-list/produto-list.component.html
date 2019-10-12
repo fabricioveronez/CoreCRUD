@@ -1,0 +1,36 @@
+<mat-table [dataSource]="produtos" matSort>
+
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let produto">
+            <button mat-icon-button class="mr-0 mr-sm-16" (click)="onDelete(produto)">
+                Deletar
+            </button>
+            <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="'/editar/'+produto.id">
+                Editar
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <!-- NAME Column -->
+    <ng-container matColumnDef="nome">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Nome</mat-header-cell>
+        <mat-cell *matCellDef="let produto">
+            <p class="text-truncate">{{produto.nome}}</p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- NAME Column -->
+    <ng-container matColumnDef="descricao">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Descrição</mat-header-cell>
+        <mat-cell *matCellDef="let produto">
+            <p class="text-truncate">{{produto.descricao}}</p>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
+
+    <mat-row *matRowDef="let produto; columns: displayedColumns;" class="order" matRipple>
+        <!-- [routerLink]="'/pages/produto/edit/'+produto.id" -->
+    </mat-row>
+</mat-table>

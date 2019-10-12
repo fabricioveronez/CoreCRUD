@@ -1,0 +1,31 @@
+<form name="produtoForm">
+    <p>
+        <mat-form-field appearance="standard">
+            <mat-label>Nome</mat-label>
+            <input matInput [(ngModel)]="produto.nome" placeholder="Nome do Produto" name="name" required>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="standard">
+            <mat-label>Preço</mat-label>
+            <input matInput [(ngModel)]="produto.preco" placeholder="Preço do Produto" name="preco" required>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="standard">
+            <mat-label>Categorias</mat-label>
+            <input matInput [(ngModel)]="produto.categoria" placeholder="Categorias do Produto" name="categorias"
+                required>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="standard">
+            <mat-label>Descrição</mat-label>
+            <input matInput [(ngModel)]="produto.descricao" placeholder="Descrição do Produto" name="descricao"
+                required>
+        </mat-form-field>
+    </p>
+</form>
+<button mat-raised-button (click)="salvarProduto()">
+        <span>SAVE</span>
+    </button>

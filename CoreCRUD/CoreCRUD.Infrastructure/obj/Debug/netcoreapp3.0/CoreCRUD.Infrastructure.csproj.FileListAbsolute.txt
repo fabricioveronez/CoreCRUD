@@ -1,7 +1,0 @@
-D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Infrastructure\bin\Debug\netcoreapp3.0\CoreCRUD.Infrastructure.deps.json
-D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Infrastructure\bin\Debug\netcoreapp3.0\CoreCRUD.Infrastructure.dll
-D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Infrastructure\bin\Debug\netcoreapp3.0\CoreCRUD.Infrastructure.pdb
-D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Infrastructure\obj\Debug\netcoreapp3.0\CoreCRUD.Infrastructure.AssemblyInfoInputs.cache
-D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Infrastructure\obj\Debug\netcoreapp3.0\CoreCRUD.Infrastructure.AssemblyInfo.cs
-D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Infrastructure\obj\Debug\netcoreapp3.0\CoreCRUD.Infrastructure.dll
-D:\Fabricio\Projetos\CoreCRUD\CoreCRUD\CoreCRUD.Infrastructure\obj\Debug\netcoreapp3.0\CoreCRUD.Infrastructure.pdb
