@@ -4,15 +4,14 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
         <mat-cell *matCellDef="let produto">
             <button mat-icon-button class="mr-0 mr-sm-16" (click)="onDelete(produto)">
-                Deletar
+                <mat-icon>delete</mat-icon>
             </button>
             <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="'/editar/'+produto.id">
-                Editar
+                <mat-icon>create</mat-icon>
             </button>
         </mat-cell>
     </ng-container>
 
-    <!-- NAME Column -->
     <ng-container matColumnDef="nome">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Nome</mat-header-cell>
         <mat-cell *matCellDef="let produto">
@@ -20,7 +19,20 @@
         </mat-cell>
     </ng-container>
 
-    <!-- NAME Column -->
+    <ng-container matColumnDef="preco">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Preço</mat-header-cell>
+        <mat-cell *matCellDef="let produto">
+            <p class="text-truncate">{{produto.preco}}</p>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="categoria">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Categoria</mat-header-cell>
+        <mat-cell *matCellDef="let produto">
+            <p class="text-truncate">{{produto.categoria}}</p>
+        </mat-cell>
+    </ng-container>
+
     <ng-container matColumnDef="descricao">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Descrição</mat-header-cell>
         <mat-cell *matCellDef="let produto">

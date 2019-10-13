@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  corecrud.api:
+    image: fabricioveronez/corecrud
+    ports:
+      - "8181:80"
+    build:
+      context: Backend/.
+      dockerfile: CoreCRUD/CoreCRUD.Api/Dockerfile
+    networks:
+      - corecrud
+
+  corecrud.web:
+    image: fabricioveronez/corecrud-web
+    ports:
+      - "8282:80"
+    build:
+      context: Frontend/.
+      dockerfile: Dockerfile     
+
+  corecrud-mongodb:
+    image: mongo:4.1
+    volumes:
+      - db_mongo:/data/db
+    networks:
+      - corecrud
+    restart: always
+    command: --storageEngine wiredTiger
+    environment: 
+      MONGO_INITDB_ROOT_USERNAME: mongouser
+      MONGO_INITDB_ROOT_PASSWORD: GPX4WOwpcvOc9Wm70gAG8It7tKA0Cy090ZVO82cEJsExogsMDY
+
+volumes:
+  db_mongo:
+networks: 
+  corecrud: 
+    driver: bridge

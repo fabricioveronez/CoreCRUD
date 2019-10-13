@@ -11,7 +11,7 @@ import { Produto } from '../services/produto.model';
 })
 export class ProdutoListComponent implements OnInit {
 
-  displayedColumns: string[] = ['delete', 'nome', 'descricao'];
+  displayedColumns: string[] = ['delete', 'nome', 'preco', 'categoria', 'descricao'];
   produtos: MatTableDataSource<Produto>;
 
   constructor(private service: ProdutoService,
@@ -36,7 +36,7 @@ export class ProdutoListComponent implements OnInit {
       this.service.delete(produto.id);
       await this.carregarTabela();
     } catch (error) {
-      console.log(error);
+      alert('Erro ao excluir o produto.');
     }
   }
 
@@ -47,7 +47,7 @@ export class ProdutoListComponent implements OnInit {
       const itens = await this.service.getAll();
       this.produtos = new MatTableDataSource(itens);
     } catch (error) {
-      console.log(error);
+      alert('Erro ao carregar os produtos.');
     }
   }
 }

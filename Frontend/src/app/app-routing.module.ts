@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'editar/:id', component: ProdutoEditComponent },
   { path: 'editar', component: ProdutoEditComponent },
   { path: 'listar', component: ProdutoListComponent },
+  { path: '', redirectTo: '/listar',  pathMatch: 'full' }
 ];
 
 @NgModule({

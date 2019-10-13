@@ -1,7 +1,7 @@
 import { ProdutoService } from './../services/produto.service';
 import { Produto } from './../services/produto.model';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { async } from 'q';
 
 @Component({
@@ -14,7 +14,8 @@ export class ProdutoEditComponent implements OnInit {
   produto: Produto = new Produto();
 
   constructor(private service: ProdutoService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   public ngOnInit(): void {
     this.route.paramMap.subscribe(async paramMap => {
@@ -23,7 +24,7 @@ export class ProdutoEditComponent implements OnInit {
         try {
           this.produto = await this.service.get(paramMap.get('id'));
         } catch (error) {
-          console.log(error);
+          alert('Erro ao carregar o produto.');
         }
       } else {
         this.produto = new Produto();
@@ -36,8 +37,9 @@ export class ProdutoEditComponent implements OnInit {
     try {
       await this.service.save(this.produto);
       alert('Cadastro feito.');
+      this.router.navigate(['listar']);
     } catch (error) {
-      console.log(error);
+      alert('Erro ao efetuar o cadastro.');
     }
   }
 }
