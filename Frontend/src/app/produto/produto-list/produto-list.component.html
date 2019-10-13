@@ -1,7 +1,9 @@
 <mat-table [dataSource]="produtos" matSort>
 
     <ng-container matColumnDef="delete">
-        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="'/editar'">
+            <mat-icon>add</mat-icon>
+        </button></mat-header-cell>
         <mat-cell *matCellDef="let produto">
             <button mat-icon-button class="mr-0 mr-sm-16" (click)="onDelete(produto)">
                 <mat-icon>delete</mat-icon>
