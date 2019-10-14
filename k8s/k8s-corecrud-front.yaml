@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: corecrud-front
+spec:
+  selector:
+    matchLabels:
+      app: corecrud-front
+  template:    
+    metadata:
+      labels:
+        app: corecrud-front
+    spec:      
+      containers:
+      - name: corecrud-front-container
+        image: fabricioveronez/corecrud-front
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: corecrud-front-service
+spec:
+  selector:
+    app: corecrud-front
+  ports:
+  - protocol: TCP
+    port: 80
+  # type: LoadBalancer

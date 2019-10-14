@@ -1,22 +1,8 @@
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mongo-storage-disk
-spec:
-  accessModes:
-  - ReadWriteOnce
-  storageClassName: default
-  resources:
-    requests:
-      storage: 1Gi
-
----
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: corecrud-mongodb
-spec:
+spec:  
   selector:
     matchLabels:
       app: corecrud-mongodb
@@ -35,14 +21,6 @@ spec:
           value: "GPX4WOwpcvOc9Wm70gAG8It7tKA0Cy090ZVO82cEJsExogsMDY"
         ports:
         - containerPort: 27017
-        volumeMounts:
-          - mountPath: /data/db
-            name: mongo-volume
-      volumes:
-        - name: mongo-volume
-          persistentVolumeClaim:
-            claimName: mongo-storage-disk
-
 
 ---
 
@@ -67,14 +45,14 @@ spec:
   selector:
     matchLabels:
       app: corecrud
-  template:
+  template:    
     metadata:
       labels:
         app: corecrud
-    spec:
+    spec:      
       containers:
       - name: corecrud-container
-        image: fabricioveronez/corecrud:latest
+        image: fabricioveronez/corecrud-back        
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -89,6 +67,5 @@ spec:
   selector:
     app: corecrud
   ports:
-  - protocol: TCP
-    port: 80
-  type: LoadBalancer
+    - protocol: TCP
+      port: 80
