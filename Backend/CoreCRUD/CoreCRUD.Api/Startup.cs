@@ -51,7 +51,6 @@ namespace CoreCRUD.Api
                     Contact = new Contact { Name = "Fabrício Veronez", Email = "fabricioveronez@gmail.com", Url = "" },
                     License = new License { Name = "Sem licença.", Url = "" }
                 });
-
                 // Configuro os comentários do swagger JSON e UI.
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPath = Path.Combine(basePath, "CoreCRUD.Api.xml");
