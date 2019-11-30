@@ -44,7 +44,7 @@ namespace CoreCRUD.Api
             {
                 c.SwaggerDoc("v1", new Info
                 {
-                    Version = "v1",
+                    Version = "v2",
                     Title = "Core CRUD",
                     Description = "Api de cadastro de produto",
                     TermsOfService = "",
