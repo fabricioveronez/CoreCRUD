@@ -14,6 +14,9 @@ using CoreCRUD.Infrastructure.DbContext;
 using CoreCRUD.Application.Interfaces.Services;
 using CoreCRUD.Repository;
 using CoreCRUD.Application.Services;
+using System;
+using App.Metrics;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CoreCRUD.Api
 {
@@ -64,18 +67,27 @@ namespace CoreCRUD.Api
             {
                 return new MongoContext()
                 {
-                    ConnectionString = this.Configuration.GetSection("Mongo:ConnectionString").Get<string>(),
-                    DataBase = this.Configuration.GetSection("Mongo:DataBase").Get<string>()
+                    ConnectionString = (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("MONGO_CONNECTIONSTRING"))) ? this.Configuration.GetSection("Mongo:ConnectionString").Get<string>() : Environment.GetEnvironmentVariable("MONGO_CONNECTIONSTRING"),
+                    DataBase = (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("MONGO_DATABASE"))) ? this.Configuration.GetSection("Mongo:DataBase").Get<string>() : Environment.GetEnvironmentVariable("MONGO_DATABASE")
                 };
             });
 
+            var metrics = new MetricsBuilder()
+                             .Configuration.Configure(
+                                 options =>
+                                 {
+                                     options.AddServerTag();
+                                     options.AddEnvTag();
+                                     options.AddAppTag();
+                                 })
+                             .OutputMetrics.AsPrometheusPlainText()
+                             .Build();
 
-            //services.AddScoped((sp) =>
-            //{
-            //    return sp.GetRequiredService<MongoContext>();
-            //});
-
-            //services.AddScoped<IDbContext, MongoContext>();
+            services.AddMetrics(metrics);
+            services.AddMetricsReportingHostedService();
+            services.AddMetricsEndpoints();
+            services.AddMetricsTrackingMiddleware();
+            services.AddMvc().AddMetrics();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -102,6 +114,8 @@ namespace CoreCRUD.Api
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Core CRUD v1");
             });
 
+            app.UseMetricsAllEndpoints();
+            app.UseMetricsAllMiddleware();
             app.UseMvc();
         }
     }

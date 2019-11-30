@@ -5,7 +5,7 @@ metadata:
 spec:  
   selector:
     matchLabels:
-      app: corecrud-mongodb
+      app: corecrud-mongodb      
   template:
     metadata:
       labels:
@@ -41,7 +41,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: corecrud
-spec:
+spec:  
   selector:
     matchLabels:
       app: corecrud
@@ -52,7 +52,7 @@ spec:
     spec:      
       containers:
       - name: corecrud-container
-        image: fabricioveronez/corecrud-back        
+        image: videok8s.azurecr.io/corecrud-back        
         imagePullPolicy: Always
         ports:
         - containerPort: 80

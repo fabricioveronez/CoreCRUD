@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: corecrud-front
-spec:
+spec:  
   selector:
     matchLabels:
       app: corecrud-front
@@ -13,7 +13,7 @@ spec:
     spec:      
       containers:
       - name: corecrud-front-container
-        image: fabricioveronez/corecrud-front
+        image: videok8s.azurecr.io/corecrud-front
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -30,4 +30,4 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-  # type: LoadBalancer
+  type: LoadBalancer

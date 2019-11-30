@@ -10,6 +10,9 @@ services:
       dockerfile: CoreCRUD/CoreCRUD.Api/Dockerfile
     networks:
       - corecrud
+    environment: 
+      MONGO_CONNECTIONSTRING: mongodb://mongouser:GPX4WOwpcvOc9Wm70gAG8It7tKA0Cy090ZVO82cEJsExogsMDY@corecrud-mongodb:27017/admin
+      MONGO_DATABASE: admin
 
   corecrud-mongodb:
     image: mongo:4.1
