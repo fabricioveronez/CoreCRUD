@@ -23,14 +23,3 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: corecrud-service
-spec:
-  selector:
-    app: corecrud
-  ports:
-    - protocol: TCP
-      port: 80
