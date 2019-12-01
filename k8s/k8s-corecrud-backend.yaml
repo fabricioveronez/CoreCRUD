@@ -42,17 +42,23 @@ kind: Deployment
 metadata:
   name: corecrud
 spec:  
+  replicas: 4
   selector:
     matchLabels:
       app: corecrud
-  template:    
+  template:      
     metadata:
       labels:
         app: corecrud
     spec:      
       containers:
       - name: corecrud-container
-        image: videok8s.azurecr.io/corecrud-back        
+        image: fabricioveronez/corecrud-backend
+        env:
+        - name: MONGO_CONNECTIONSTRING
+          value: "mongodb://mongouser:GPX4WOwpcvOc9Wm70gAG8It7tKA0Cy090ZVO82cEJsExogsMDY@corecrud-mongodb:27017/admin"
+        - name: MONGO_DATABASE
+          value: "admin"               
         imagePullPolicy: Always
         ports:
         - containerPort: 80
